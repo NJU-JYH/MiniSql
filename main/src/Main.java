@@ -1,6 +1,3 @@
-import javafx.scene.control.Tab;
-
-import javax.swing.plaf.nimbus.State;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
