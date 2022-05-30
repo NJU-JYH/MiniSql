@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d91f7240-854c-4165-b21c-5306e381dc44" name="默认更改列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="29roFEBsQrxykGAdaC1GKmh5dWp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d91f7240-854c-4165-b21c-5306e381dc44" name="默认更改列表" comment="" />
+      <created>1653880459339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653880459339</updated>
+      <workItem from="1653880460545" duration="79000" />
+      <workItem from="1653880682170" duration="4970000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1653880521515">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653880521515" />
+    <state x="617" y="215" key="#项目结构" timestamp="1653880469242">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="215" key="#项目结构/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653880469242" />
+    <state width="2004" height="376" key="GridCell.Tab.0.bottom" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.0.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state width="2004" height="376" key="GridCell.Tab.0.center" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.0.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state width="2004" height="376" key="GridCell.Tab.0.left" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.0.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state width="2004" height="376" key="GridCell.Tab.0.right" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.0.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state width="2004" height="376" key="GridCell.Tab.1.bottom" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.1.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state width="2004" height="376" key="GridCell.Tab.1.center" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.1.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state width="2004" height="376" key="GridCell.Tab.1.left" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.1.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state width="2004" height="376" key="GridCell.Tab.1.right" timestamp="1653893949714">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2004" height="376" key="GridCell.Tab.1.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653893949714" />
+    <state x="505" y="131" key="SettingsEditor" timestamp="1653881885199">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="505" y="131" key="SettingsEditor/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653881885199" />
+    <state x="657" y="166" key="new project wizard" timestamp="1653880778127">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="657" y="166" key="new project wizard/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653880778127" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/main/src/Main.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
