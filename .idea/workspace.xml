@@ -4,9 +4,6 @@
     <list default="true" id="d91f7240-854c-4165-b21c-5306e381dc44" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MiniSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MiniSql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Row.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/main/MiniSqlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/main/MiniSqlTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/type/PrepareResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/PrepareResult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <workItem from="1653880682170" duration="20024000" />
       <workItem from="1653956728391" duration="1501000" />
       <workItem from="1653958249070" duration="2292000" />
-      <workItem from="1653961795881" duration="1824000" />
+      <workItem from="1653961795881" duration="2306000" />
     </task>
     <task id="LOCAL-00001" summary="实现了简单的内存中存取操作">
       <created>1653922464296</created>
@@ -128,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653961900805</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="输入字符串长度检查">
+      <created>1653963872195</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653963872195</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +142,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="实现了简单的内存中存取操作" />
     <MESSAGE value="加入单元测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入单元测试" />
+    <MESSAGE value="输入字符串长度检查" />
+    <option name="LAST_COMMIT_MESSAGE" value="输入字符串长度检查" />
   </component>
   <component name="WindowStateProjectService">
     <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1653962036029">
@@ -161,10 +166,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="617" y="215" key="#项目结构/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653880469242" />
-    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1653961899740">
+    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1653964198797">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653961899740" />
+    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653964198797" />
     <state width="2004" height="278" key="GridCell.Tab.0.bottom" timestamp="1653963762056">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

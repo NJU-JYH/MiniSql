@@ -4,7 +4,6 @@ import type.ExecuteResult;
 import type.MetaCommandResult;
 import type.PrepareResult;
 import type.StatementType;
-
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
