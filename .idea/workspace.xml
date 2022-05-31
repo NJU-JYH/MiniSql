@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d91f7240-854c-4165-b21c-5306e381dc44" name="默认更改列表" comment="">
+    <list default="true" id="d91f7240-854c-4165-b21c-5306e381dc44" name="默认更改列表" comment="Merge branch 'main' of github.com:NJU-JYH/MiniSql&#10;&#10;# Conflicts:&#10;#&#9;src/main/MiniSql.java">
+      <change afterPath="$PROJECT_DIR$/src/main/Pager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/main/MiniSql$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/main/MiniSql$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/main/MiniSql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/main/MiniSql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/main/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/main/Page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/main/Row.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/main/Row.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/main/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/main/Table.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MiniSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MiniSql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Row.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +74,7 @@
     <configuration name="MiniSql" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.MiniSql" />
       <module name="main" />
+      <option name="PROGRAM_PARAMETERS" value="test.db" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,7 +120,7 @@
       <workItem from="1653880682170" duration="20024000" />
       <workItem from="1653956728391" duration="1501000" />
       <workItem from="1653958249070" duration="2292000" />
-      <workItem from="1653961795881" duration="2306000" />
+      <workItem from="1653961795881" duration="22934000" />
     </task>
     <task id="LOCAL-00001" summary="实现了简单的内存中存取操作">
       <created>1653922464296</created>
@@ -143,21 +154,26 @@
     <MESSAGE value="实现了简单的内存中存取操作" />
     <MESSAGE value="加入单元测试" />
     <MESSAGE value="输入字符串长度检查" />
-    <option name="LAST_COMMIT_MESSAGE" value="输入字符串长度检查" />
+    <MESSAGE value="Merge branch 'main' of github.com:NJU-JYH/MiniSql&#10;&#10;# Conflicts:&#10;#&#9;src/main/MiniSql.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'main' of github.com:NJU-JYH/MiniSql&#10;&#10;# Conflicts:&#10;#&#9;src/main/MiniSql.java" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1653962036029">
+    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1654003720696">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653962036029" />
-    <state x="862" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1653895150640">
+    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003720696" />
+    <state x="862" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1654004198457">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="862" y="359" key="#com.intellij.fileTypes.FileTypeChooser/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653895150640" />
-    <state x="776" y="257" key="#com.intellij.ide.util.MemberChooser" timestamp="1653922276078">
+    <state x="862" y="359" key="#com.intellij.fileTypes.FileTypeChooser/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654004198457" />
+    <state x="804" y="261" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1654003702894">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="776" y="257" key="#com.intellij.ide.util.MemberChooser/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653922276078" />
+    <state x="804" y="261" key="#com.intellij.ide.macro.MacrosDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003702894" />
+    <state x="776" y="257" key="#com.intellij.ide.util.MemberChooser" timestamp="1654002874718">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="776" y="257" key="#com.intellij.ide.util.MemberChooser/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654002874718" />
     <state x="673" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1653961648184">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -166,42 +182,42 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="617" y="215" key="#项目结构/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653880469242" />
-    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1653964198797">
+    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1653964267355">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653964198797" />
-    <state width="2004" height="278" key="GridCell.Tab.0.bottom" timestamp="1653963762056">
+    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653964267355" />
+    <state width="2004" height="376" key="GridCell.Tab.0.bottom" timestamp="1654003985864">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
-    <state width="2004" height="278" key="GridCell.Tab.0.center" timestamp="1653963762056">
+    <state width="2004" height="376" key="GridCell.Tab.0.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003985864" />
+    <state width="2004" height="376" key="GridCell.Tab.0.center" timestamp="1654003985864">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
-    <state width="2004" height="278" key="GridCell.Tab.0.left" timestamp="1653963762056">
+    <state width="2004" height="376" key="GridCell.Tab.0.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003985864" />
+    <state width="2004" height="376" key="GridCell.Tab.0.left" timestamp="1654003985864">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
-    <state width="2004" height="278" key="GridCell.Tab.0.right" timestamp="1653963762056">
+    <state width="2004" height="376" key="GridCell.Tab.0.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003985864" />
+    <state width="2004" height="376" key="GridCell.Tab.0.right" timestamp="1654003985864">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
-    <state width="2004" height="376" key="GridCell.Tab.1.bottom" timestamp="1653922736288">
+    <state width="2004" height="376" key="GridCell.Tab.0.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003985864" />
+    <state width="2004" height="376" key="GridCell.Tab.1.bottom" timestamp="1654003990267">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="376" key="GridCell.Tab.1.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653922736288" />
-    <state width="2004" height="376" key="GridCell.Tab.1.center" timestamp="1653922736288">
+    <state width="2004" height="376" key="GridCell.Tab.1.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003990267" />
+    <state width="2004" height="376" key="GridCell.Tab.1.center" timestamp="1654003990267">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="376" key="GridCell.Tab.1.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653922736288" />
-    <state width="2004" height="376" key="GridCell.Tab.1.left" timestamp="1653922736288">
+    <state width="2004" height="376" key="GridCell.Tab.1.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003990267" />
+    <state width="2004" height="376" key="GridCell.Tab.1.left" timestamp="1654003990267">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="376" key="GridCell.Tab.1.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653922736288" />
-    <state width="2004" height="376" key="GridCell.Tab.1.right" timestamp="1653922736288">
+    <state width="2004" height="376" key="GridCell.Tab.1.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003990267" />
+    <state width="2004" height="376" key="GridCell.Tab.1.right" timestamp="1654003990267">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="376" key="GridCell.Tab.1.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653922736288" />
+    <state width="2004" height="376" key="GridCell.Tab.1.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654003990267" />
     <state x="142" y="117" key="SettingsEditor" timestamp="1653958347862">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

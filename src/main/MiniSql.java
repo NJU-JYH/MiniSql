@@ -4,8 +4,14 @@ import type.ExecuteResult;
 import type.MetaCommandResult;
 import type.PrepareResult;
 import type.StatementType;
+
+import java.io.*;
+import java.nio.channels.FileChannel;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
 
 public class MiniSql {
     public static void print_prompt() {
@@ -29,7 +35,7 @@ public class MiniSql {
                 statement.type = StatementType.STATEMENT_SELECT;
                 return PrepareResult.PREPARE_SUCCESS;
             }
-        }catch (StringIndexOutOfBoundsException e){
+        } catch (StringIndexOutOfBoundsException e) {
             return PrepareResult.PREPARE_UNRECOGNIZED_STATEMENT;
         }
         return PrepareResult.PREPARE_UNRECOGNIZED_STATEMENT;
@@ -43,16 +49,16 @@ public class MiniSql {
             int id = scanner.nextInt();
             String username = scanner.next();
             String email = scanner.next();
-            if(id < 0) return PrepareResult.PREPARE_NEGATIVE_ID;
-            if(username.length() > Row.COLUMN_USERNAME_SIZE || email.length() > Row.COLUMN_EMAIL_SIZE)
+            if (id < 0) return PrepareResult.PREPARE_NEGATIVE_ID;
+            if (username.length() > Row.COLUMN_USERNAME_SIZE || email.length() > Row.COLUMN_EMAIL_SIZE)
                 return PrepareResult.PREPARE_STRING_TOO_LONG;
-            else{
+            else {
                 statement.row_to_insert.id = id;
                 statement.row_to_insert.username = username;
                 statement.row_to_insert.email = email;
                 return PrepareResult.PREPARE_SUCCESS;
             }
-        } catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             return PrepareResult.PREPARE_SYNTAX_ERROR;
         }
 
@@ -95,17 +101,8 @@ public class MiniSql {
      */
     static Row row_slot(Table table, int i) {
         int page_num = i / Page.ROWS_PER_PAGE;
-        Page page = table.pages[page_num];
-        if (page == null) {
-            page = new Page();
-            table.pages[page_num] = page;
-        }
-        Row row = page.rows[i % Page.ROWS_PER_PAGE];
-        if (row == null) {
-            row = new Row();
-            page.rows[i % Page.ROWS_PER_PAGE] = row;
-        }
-        return row;
+        Page page = get_page(table.pager, page_num);
+        return page.rows[i % Page.ROWS_PER_PAGE];
     }
 
     /**
@@ -128,8 +125,108 @@ public class MiniSql {
         destination.email = row.email;
     }
 
+    /**
+     * 从磁盘上获取Pager
+     */
+    static Pager pager_open(String filename) {
+        Pager pager = new Pager();
+        pager.file = new File(filename);
+        pager.file_length = pager.file.length();
+        pager.pages = new Page[Table.TABLE_MAX_PAGES];
+        return pager;
+    }
+
+    /**
+     *
+     */
+    static Page get_page(Pager pager, int page_num) {
+        if (page_num > Table.TABLE_MAX_PAGES) {
+            System.out.println("Tried to fetch page number out of bounds. " + Table.TABLE_MAX_PAGES);
+            return null;
+        }
+        if (pager.pages[page_num] == null) {
+            Page page = new Page();
+            //已经存储的page数量
+            int num_pages = (int) (pager.file_length / Page.PAGE_SIZE);
+            if (pager.file_length % Page.PAGE_SIZE != 0) num_pages += 1;
+            if (page_num <= num_pages) {
+                /***
+                 * 文件读过程
+                 */
+                try {
+                    RandomAccessFile file = new RandomAccessFile(pager.file, "rw");
+                    byte[] bytes = new byte[Page.PAGE_SIZE];
+                    file.read(bytes, page_num * Page.PAGE_SIZE, Page.PAGE_SIZE);
+                    page.setBytes(bytes, 0, bytes.length);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            pager.pages[page_num] = page;
+        }
+        return pager.pages[page_num];
+    }
+
+    private static Table db_open(String filename) {
+        Pager pager = pager_open(filename);
+        int num_rows = (int) (pager.file_length / Row.ROW_SIZE);
+        Table table = new Table(num_rows, pager);
+        return table;
+    }
+
+    /***/
+    static void db_close(Table table) {
+        Pager pager = table.pager;
+        /**
+         * 先将行满的页冲刷
+         * */
+        int num_full_pages = table.num_rows / Page.ROWS_PER_PAGE;
+        for (int i = 0; i < num_full_pages; i++) {
+            if (pager.pages[i] == null) continue;
+            pager_flush(pager, i, Page.PAGE_SIZE);
+            pager.pages[i] = null;
+        }
+        /**
+         * 最后一页可能行未满
+         * */
+        int num_additional_rows = table.num_rows % Page.ROWS_PER_PAGE;
+        if (num_additional_rows > 0) {
+            int page_num = num_full_pages;
+            if (pager.pages[page_num] != null) {
+                pager_flush(pager, page_num, num_additional_rows);
+                pager.pages[page_num] = null;
+            }
+        }
+        System.gc();
+    }
+
+    /**
+     * 将Pager转化为字节数组冲刷到磁盘上
+     */
+    static void pager_flush(Pager pager, int page_num, int size) {
+        if (pager.pages[page_num] == null) {
+            System.out.println("Tried to flush null page.");
+            return;
+        }
+        try {
+            RandomAccessFile file = new RandomAccessFile(pager.file, "rw");
+            file.write(pager.pages[page_num].getBytes(), page_num * Page.PAGE_SIZE, size);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("Flush fail.");
+        }
+
+    }
+
+
     public static void main(String[] args) {
-        Table table = new Table();
+        if (args.length == 0) {
+            System.out.println("Must supply a database filename.");
+            return;
+        }
+        String filename = args[0];
+        Table table = db_open(filename);
         Scanner scanner = new Scanner(System.in);
         while (true) {
             print_prompt();
@@ -142,8 +239,11 @@ public class MiniSql {
                         System.out.println("Unrecognized command " + input_buffer);
                         continue;
                     }
-                    case META_COMMAND_EXIT:
+                    case META_COMMAND_EXIT:{
+                        db_close(table);
                         return;
+                    }
+
                     default:
                         continue;
                 }
@@ -161,11 +261,11 @@ public class MiniSql {
                     System.out.println("Unrecognized keyword at start of " + input_buffer);
                     continue;
                 }
-                case PREPARE_NEGATIVE_ID:{
+                case PREPARE_NEGATIVE_ID: {
                     System.out.println("ID must be positive.");
                     continue;
                 }
-                case PREPARE_STRING_TOO_LONG:{
+                case PREPARE_STRING_TOO_LONG: {
                     System.out.println("String is too long.");
                     continue;
                 }
@@ -184,6 +284,9 @@ public class MiniSql {
                 default:
                     break;
             }
+            Deque<Integer> deque;
         }
     }
+
+
 }
