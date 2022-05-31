@@ -1,3 +1,5 @@
+package main;
+
 import java.util.Arrays;
 
 public class Row {
@@ -11,7 +13,7 @@ public class Row {
 
     @Override
     public String toString() {
-        return "Row{" +
+        return "main.Row{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +

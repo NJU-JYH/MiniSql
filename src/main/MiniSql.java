@@ -1,10 +1,14 @@
-import javafx.scene.control.Tab;
+package main;
 
-import javax.swing.plaf.nimbus.State;
+import type.ExecuteResult;
+import type.MetaCommandResult;
+import type.PrepareResult;
+import type.StatementType;
+
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class Main {
+public class MiniSql {
     static void print_prompt(){
         System.out.print("db >");
     }
@@ -17,7 +21,7 @@ public class Main {
         }
     }
 
-    static PrepareResult prepare_statement(String input_buffer,Statement statement){
+    static PrepareResult prepare_statement(String input_buffer, Statement statement){
         try {
             if(input_buffer.substring(0,6).equals("insert")){
                 statement.type = StatementType.STATEMENT_INSERT;
@@ -147,7 +151,7 @@ public class Main {
                     break;
                 }
                 case EXECUTE_TABLE_FULL:{
-                    System.out.println("Error: Table full.");
+                    System.out.println("Error: main.Table full.");
                     break;
                 }
                 default:break;
