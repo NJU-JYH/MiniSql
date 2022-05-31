@@ -3,6 +3,8 @@ package main;
 import java.util.Arrays;
 
 public class Row {
+    final static int COLUMN_USERNAME_SIZE = 32;
+    final static int COLUMN_EMAIL_SIZE = 255;
     final static int ID_SIZE = 4;
     final static int USERNAME_SIZE = 32;
     final static int EMAIL_SIZE = 255;

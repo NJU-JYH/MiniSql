@@ -2,31 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d91f7240-854c-4165-b21c-5306e381dc44" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/main/MiniSqlTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/ExecuteResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/ExecuteResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MiniSql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/MetaCommandResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/MetaCommandResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/PrepareResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/PrepareResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Row.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Statement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/StatementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/StatementType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Statement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MiniSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MiniSql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Row.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/main/MiniSqlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/main/MiniSqlTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/PrepareResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/PrepareResult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="MiniSql" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,42 +71,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MiniSqlTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.MiniSqlTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MiniSqlTest.testMain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.*" />
+          <option name="PATTERN" value="test.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.MiniSqlTest" />
+      <option name="PACKAGE_NAME" value="test.main" />
+      <option name="MAIN_CLASS_NAME" value="test.main.MiniSqlTest" />
       <option name="METHOD_NAME" value="testMain" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.MiniSql" />
+      <item itemvalue="JUnit.MiniSqlTest.testMain" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MiniSql" />
         <item itemvalue="JUnit.MiniSqlTest.testMain" />
-        <item itemvalue="JUnit.MiniSqlTest" />
       </list>
     </recent_temporary>
   </component>
@@ -136,6 +112,7 @@
       <workItem from="1653880682170" duration="20024000" />
       <workItem from="1653956728391" duration="1501000" />
       <workItem from="1653958249070" duration="2292000" />
+      <workItem from="1653961795881" duration="1824000" />
     </task>
     <task id="LOCAL-00001" summary="实现了简单的内存中存取操作">
       <created>1653922464296</created>
@@ -144,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653922464296</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="加入单元测试">
+      <created>1653961900805</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653961900805</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,13 +137,14 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="实现了简单的内存中存取操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="加入单元测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="加入单元测试" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1653961765198">
+    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1653962036029">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653961765198" />
+    <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653962036029" />
     <state x="862" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1653895150640">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -176,26 +161,26 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="617" y="215" key="#项目结构/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653880469242" />
-    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1653922648699">
+    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1653961899740">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653922648699" />
-    <state width="2004" height="278" key="GridCell.Tab.0.bottom" timestamp="1653961783831">
+    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653961899740" />
+    <state width="2004" height="278" key="GridCell.Tab.0.bottom" timestamp="1653963762056">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653961783831" />
-    <state width="2004" height="278" key="GridCell.Tab.0.center" timestamp="1653961783831">
+    <state width="2004" height="278" key="GridCell.Tab.0.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
+    <state width="2004" height="278" key="GridCell.Tab.0.center" timestamp="1653963762056">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653961783831" />
-    <state width="2004" height="278" key="GridCell.Tab.0.left" timestamp="1653961783831">
+    <state width="2004" height="278" key="GridCell.Tab.0.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
+    <state width="2004" height="278" key="GridCell.Tab.0.left" timestamp="1653963762056">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653961783831" />
-    <state width="2004" height="278" key="GridCell.Tab.0.right" timestamp="1653961783831">
+    <state width="2004" height="278" key="GridCell.Tab.0.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
+    <state width="2004" height="278" key="GridCell.Tab.0.right" timestamp="1653963762056">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2004" height="278" key="GridCell.Tab.0.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653961783831" />
+    <state width="2004" height="278" key="GridCell.Tab.0.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1653963762056" />
     <state width="2004" height="376" key="GridCell.Tab.1.bottom" timestamp="1653922736288">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

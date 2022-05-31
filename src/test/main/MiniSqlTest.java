@@ -1,6 +1,7 @@
 package test.main; 
 
-import org.junit.Test; 
+import main.MiniSql;
+import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After; 
 
@@ -118,7 +119,8 @@ public void testDeserialize_row() throws Exception {
 */ 
 @Test
 public void testMain() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    MiniSql.main(null);
 } 
 
 
