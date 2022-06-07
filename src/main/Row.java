@@ -26,6 +26,10 @@ public class Row {
         buffer2Row(buffer, offset, size);
     }
 
+    boolean isNull(){
+        return id == 0 && username.equals("") && email.equals("");
+    }
+
     void buffer2Row(MappedByteBuffer buffer, int offset, int size){
         int id = 0;
         for (int i = offset + ID_OFFSET; i < offset + ID_OFFSET + ID_SIZE; i++) {

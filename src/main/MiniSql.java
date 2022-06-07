@@ -6,6 +6,7 @@ import type.PrepareResult;
 import type.StatementType;
 
 import java.io.*;
+import java.nio.MappedByteBuffer;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -78,10 +79,11 @@ public class MiniSql {
         if (table.full()) {
             return ExecuteResult.EXECUTE_TABLE_FULL;
         }
-        serialize_row(statement.row_to_insert, table_end(table).value());
+        Cursor cursor = table_end(table);
+        serialize_row(statement.row_to_insert, cursor.value());
 //        pager_flush(table.pager, table.num_rows / Page.ROWS_PER_PAGE, table.num_rows % Page.ROWS_PER_PAGE + 1);
+
         table.num_rows += 1;
-        table.pager.file_length += Row.ROW_SIZE;
         return ExecuteResult.EXECUTE_SUCCESS;
     }
 
@@ -125,7 +127,6 @@ public class MiniSql {
     static Pager pager_open(String filename) {
         Pager pager = new Pager();
         pager.file = new File(filename);
-        pager.file_length = pager.file.length();
         pager.pages = new Page[Table.TABLE_MAX_PAGES];
         return pager;
     }
@@ -134,7 +135,17 @@ public class MiniSql {
 
     private static Table db_open(String filename) {
         Pager pager = pager_open(filename);
-        int num_rows = (int) (pager.file_length / Page.PAGE_SIZE * Page.ROWS_PER_PAGE);
+        int page_num = (int) (pager.file.length() / Page.PAGE_SIZE);
+        int num_rows =  page_num * Page.ROWS_PER_PAGE;
+        if(page_num > 0){
+            /**
+             * num_rows需要减去末页空行数量
+             * */
+            Page page = pager.get_page(page_num - 1);
+            for(Row row:page.rows){
+                if(row.isNull()) num_rows--;
+            }
+        }
         Table table = new Table(num_rows, pager);
         return table;
     }
@@ -174,6 +185,7 @@ public class MiniSql {
 
     static Cursor table_end(Table table){
         Cursor cursor = new Cursor(table);
+        cursor.row_num = table.num_rows;
         cursor.end_of_table = true;
         return cursor;
     }
@@ -186,7 +198,7 @@ public class MiniSql {
         String filename = args[0];
         Table table = db_open(filename);
         Scanner scanner = new Scanner(System.in);
-        int test_num = 0;
+        int test_num = 1400;
         while (test_num >= 0) {
             print_prompt();
             String input_buffer = null;

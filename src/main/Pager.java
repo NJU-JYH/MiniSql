@@ -6,7 +6,6 @@ import java.nio.channels.FileChannel;
 
 public class Pager {
     File file;
-    long file_length;
     Page[] pages;
 
     /**
@@ -20,8 +19,8 @@ public class Pager {
         if (pages[page_num] == null) {
             Page page = null;
             //已经存储的page数量
-            int num_pages = (int) (file_length / Page.PAGE_SIZE);
-            if (file_length % Page.PAGE_SIZE != 0) num_pages += 1;
+            int num_pages = (int) (file.length() / Page.PAGE_SIZE);
+            if (file.length() % Page.PAGE_SIZE != 0) num_pages += 1;
             if (page_num <= num_pages) {
                 /***
                  * 内存映射该页

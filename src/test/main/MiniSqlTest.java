@@ -176,9 +176,6 @@ public void testPager_flush() throws Exception {
 public void testMain() throws Exception { 
 //TODO: Test goes here...
     MappedByteBuffer buffer = new RandomAccessFile("test.txt","rw").getChannel().map(FileChannel.MapMode.READ_WRITE,0,16);
-    byte[] bytes = new byte[16];
-    for(int i = 0;i<16;i++) bytes[i] = 1;
-    buffer.put(new byte[16]);
 } 
 
 
