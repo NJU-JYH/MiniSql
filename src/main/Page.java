@@ -1,27 +1,28 @@
 package main;
 
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
+import java.nio.MappedByteBuffer;
 
 public class Page {
     final static int PAGE_SIZE = 4096;
     final static int ROWS_PER_PAGE = PAGE_SIZE / Row.ROW_SIZE;
+
     Row[] rows = new Row[ROWS_PER_PAGE];
-    void setBytes(byte[] bytes, int begin, int end){
-        for(int i = 0;i<ROWS_PER_PAGE;i++){
-            rows[i] = new Row();
-            rows[i].setBytes(bytes, begin + i * Row.ROW_SIZE, begin + (i+1) * Row.ROW_SIZE);
+
+    Page(MappedByteBuffer buffer) {
+        buffer2Page(buffer);
+    }
+
+
+
+    void buffer2Page(MappedByteBuffer buffer) {
+        for (int i = 0; i < ROWS_PER_PAGE; i++) {
+            rows[i] = new Row(buffer, i * Row.ROW_SIZE, Row.ROW_SIZE);
         }
     }
-    byte[] getBytes(){
-        byte[] bytes = new byte[PAGE_SIZE];
-        int i = 0;
-        for(Row row:rows){
-            for(Byte b:row.getBytes()){
-                bytes[i++] = b;
-            }
+
+    void page2Buffer(MappedByteBuffer buffer,int size) {
+        for (int i = 0; i < size / Row.ROW_SIZE; i++) {
+            rows[i].row2Buffer(buffer);
         }
-        return bytes;
     }
 }

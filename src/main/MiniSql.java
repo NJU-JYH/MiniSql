@@ -6,16 +6,12 @@ import type.PrepareResult;
 import type.StatementType;
 
 import java.io.*;
-import java.nio.channels.FileChannel;
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.logging.FileHandler;
 
 public class MiniSql {
     public static void print_prompt() {
-        System.out.print("db >");
+        System.out.print("db > ");
     }
 
     static MetaCommandResult do_meta_command(String input_buffer) {
@@ -82,16 +78,20 @@ public class MiniSql {
         if (table.full()) {
             return ExecuteResult.EXECUTE_TABLE_FULL;
         }
-        serialize_row(statement.row_to_insert, table, table.num_rows);
+        serialize_row(statement.row_to_insert, table_end(table).value());
+//        pager_flush(table.pager, table.num_rows / Page.ROWS_PER_PAGE, table.num_rows % Page.ROWS_PER_PAGE + 1);
         table.num_rows += 1;
+        table.pager.file_length += Row.ROW_SIZE;
         return ExecuteResult.EXECUTE_SUCCESS;
     }
 
     static ExecuteResult execute_select(Statement statement, Table table) {
+        Cursor cursor = table_start(table);
         Row row = new Row();
-        for (int i = 0; i < table.num_rows; i++) {
-            deserialize_row(table, i, row);
+        while(!cursor.end_of_table){
+            deserialize_row(cursor.value(), row);
             System.out.println(row.toString());
+            cursor.advance();
         }
         return ExecuteResult.EXECUTE_SUCCESS;
     }
@@ -99,30 +99,24 @@ public class MiniSql {
     /**
      * 返回表中第i行数据的引用
      */
-    static Row row_slot(Table table, int i) {
-        int page_num = i / Page.ROWS_PER_PAGE;
-        Page page = get_page(table.pager, page_num);
-        return page.rows[i % Page.ROWS_PER_PAGE];
-    }
+
 
     /**
      * 仿序列化
      */
-    static void serialize_row(Row source, Table table, int i) {
-        Row row = row_slot(table, i);
-        row.id = source.id;
-        row.username = source.username;
-        row.email = source.email;
+    static void serialize_row(Row source, Row destination) {
+        destination.id = source.id;
+        destination.username = source.username;
+        destination.email = source.email;
     }
 
     /**
      * 仿反序列化
      */
-    static void deserialize_row(Table table, int i, Row destination) {
-        Row row = row_slot(table, i);
-        destination.id = row.id;
-        destination.username = row.username;
-        destination.email = row.email;
+    static void deserialize_row(Row source, Row destination) {
+        destination.id = source.id;
+        destination.username = source.username;
+        destination.email = source.email;
     }
 
     /**
@@ -136,40 +130,11 @@ public class MiniSql {
         return pager;
     }
 
-    /**
-     *
-     */
-    static Page get_page(Pager pager, int page_num) {
-        if (page_num > Table.TABLE_MAX_PAGES) {
-            System.out.println("Tried to fetch page number out of bounds. " + Table.TABLE_MAX_PAGES);
-            return null;
-        }
-        if (pager.pages[page_num] == null) {
-            Page page = new Page();
-            //已经存储的page数量
-            int num_pages = (int) (pager.file_length / Page.PAGE_SIZE);
-            if (pager.file_length % Page.PAGE_SIZE != 0) num_pages += 1;
-            if (page_num <= num_pages) {
-                /***
-                 * 文件读过程
-                 */
-                try {
-                    RandomAccessFile file = new RandomAccessFile(pager.file, "rw");
-                    byte[] bytes = new byte[Page.PAGE_SIZE];
-                    file.read(bytes, page_num * Page.PAGE_SIZE, Page.PAGE_SIZE);
-                    page.setBytes(bytes, 0, bytes.length);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            pager.pages[page_num] = page;
-        }
-        return pager.pages[page_num];
-    }
+
 
     private static Table db_open(String filename) {
         Pager pager = pager_open(filename);
-        int num_rows = (int) (pager.file_length / Row.ROW_SIZE);
+        int num_rows = (int) (pager.file_length / Page.PAGE_SIZE * Page.ROWS_PER_PAGE);
         Table table = new Table(num_rows, pager);
         return table;
     }
@@ -183,7 +148,7 @@ public class MiniSql {
         int num_full_pages = table.num_rows / Page.ROWS_PER_PAGE;
         for (int i = 0; i < num_full_pages; i++) {
             if (pager.pages[i] == null) continue;
-            pager_flush(pager, i, Page.PAGE_SIZE);
+            pager.flush(i, Page.PAGE_SIZE);
             pager.pages[i] = null;
         }
         /**
@@ -193,32 +158,25 @@ public class MiniSql {
         if (num_additional_rows > 0) {
             int page_num = num_full_pages;
             if (pager.pages[page_num] != null) {
-                pager_flush(pager, page_num, num_additional_rows);
+                pager.flush(page_num, num_additional_rows * Row.ROW_SIZE);
                 pager.pages[page_num] = null;
             }
         }
-        System.gc();
     }
 
-    /**
-     * 将Pager转化为字节数组冲刷到磁盘上
-     */
-    static void pager_flush(Pager pager, int page_num, int size) {
-        if (pager.pages[page_num] == null) {
-            System.out.println("Tried to flush null page.");
-            return;
-        }
-        try {
-            RandomAccessFile file = new RandomAccessFile(pager.file, "rw");
-            file.write(pager.pages[page_num].getBytes(), page_num * Page.PAGE_SIZE, size);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("Flush fail.");
-        }
 
+
+    static Cursor table_start(Table table){
+        Cursor cursor = new Cursor(table);
+        cursor.end_of_table = (table.num_rows == 0);
+        return cursor;
     }
 
+    static Cursor table_end(Table table){
+        Cursor cursor = new Cursor(table);
+        cursor.end_of_table = true;
+        return cursor;
+    }
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -228,9 +186,17 @@ public class MiniSql {
         String filename = args[0];
         Table table = db_open(filename);
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        int test_num = 0;
+        while (test_num >= 0) {
             print_prompt();
-            String input_buffer = scanner.nextLine();
+            String input_buffer = null;
+            if(test_num > 0){
+                input_buffer = "insert " + test_num + " username example@qq.com";
+                test_num--;
+            }else{
+                input_buffer = scanner.nextLine();
+            }
+
             if (input_buffer.matches("^\\..*")) {
                 switch (do_meta_command(input_buffer)) {
                     case META_COMMAND_SUCCESS:
@@ -278,13 +244,12 @@ public class MiniSql {
                     break;
                 }
                 case EXECUTE_TABLE_FULL: {
-                    System.out.println("Error: main.Table full.");
+                    System.out.println("Error: Table full.");
                     break;
                 }
                 default:
                     break;
             }
-            Deque<Integer> deque;
         }
     }
 
