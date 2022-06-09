@@ -7,6 +7,7 @@ import java.nio.channels.FileChannel;
 public class Pager {
     File file;
     Page[] pages;
+    int num_pages;
 
     /**
      * 以页为单位加载到内存
@@ -41,7 +42,7 @@ public class Pager {
     /**
      * 将Pager转化为字节数组冲刷到磁盘上
      */
-    void flush(int page_num, int size) {
+    void flush(int page_num) {
         if (pages[page_num] == null) {
             System.out.println("Tried to flush null page.");
             return;
@@ -49,7 +50,7 @@ public class Pager {
         try {
             RandomAccessFile file = new RandomAccessFile(this.file, "rw");
             MappedByteBuffer buffer = file.getChannel().map(FileChannel.MapMode.READ_WRITE, page_num * Page.PAGE_SIZE, Page.PAGE_SIZE);
-            pages[page_num].page2Buffer(buffer, size);
+            pages[page_num].page2Buffer(buffer);
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (IOException e) {

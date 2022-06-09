@@ -7,14 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2588772d-c36b-4727-912d-3a1ab841b04e" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/type/NodeType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Cursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Cursor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MiniSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MiniSql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Pager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Pager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Row.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/main/MiniSqlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/main/MiniSqlTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -145,7 +147,9 @@
       <workItem from="1654139206994" duration="12311000" />
       <workItem from="1654253453419" duration="605000" />
       <workItem from="1654481733678" duration="6781000" />
-      <workItem from="1654565030700" duration="15942000" />
+      <workItem from="1654565030700" duration="18488000" />
+      <workItem from="1654651453741" duration="16539000" />
+      <workItem from="1654746738914" duration="14491000" />
     </task>
     <task id="LOCAL-00001" summary="持久化BUG修复">
       <created>1654574734422</created>
@@ -154,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654574734422</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="加入游标功能">
+      <created>1654591988629</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654591988629</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,17 +184,18 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="持久化BUG修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="持久化BUG修复" />
+    <MESSAGE value="加入游标功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="加入游标功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1654052347143">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654052347143" />
-    <state x="830" y="240" key="#com.intellij.ide.util.MemberChooser" timestamp="1654575977474">
+    <state x="830" y="240" key="#com.intellij.ide.util.MemberChooser" timestamp="1654781423454">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="830" y="240" key="#com.intellij.ide.util.MemberChooser/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654575977474" />
+    <state x="830" y="240" key="#com.intellij.ide.util.MemberChooser/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654781423454" />
     <state x="755" y="340" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1654060670815">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -192,58 +204,58 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="617" y="215" key="#项目结构/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654060776554" />
-    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1654574732940">
+    <state x="642" y="148" key="CommitChangelistDialog2" timestamp="1654591987580">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654574732940" />
+    <state x="642" y="148" key="CommitChangelistDialog2/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591987580" />
     <state x="804" y="311" key="FileChooserDialogImpl" timestamp="1654075789439">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="804" y="311" key="FileChooserDialogImpl/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654075789439" />
-    <state width="1002" height="305" key="GridCell.Tab.0.bottom" timestamp="1654591382186">
+    <state width="983" height="325" key="GridCell.Tab.0.bottom" timestamp="1654788402092">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="305" key="GridCell.Tab.0.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591382186" />
-    <state width="1002" height="305" key="GridCell.Tab.0.center" timestamp="1654591382186">
+    <state width="983" height="325" key="GridCell.Tab.0.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788402092" />
+    <state width="983" height="325" key="GridCell.Tab.0.center" timestamp="1654788402092">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="305" key="GridCell.Tab.0.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591382186" />
-    <state width="1002" height="305" key="GridCell.Tab.0.left" timestamp="1654591382186">
+    <state width="983" height="325" key="GridCell.Tab.0.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788402092" />
+    <state width="983" height="325" key="GridCell.Tab.0.left" timestamp="1654788402092">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="305" key="GridCell.Tab.0.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591382186" />
-    <state width="1002" height="305" key="GridCell.Tab.0.right" timestamp="1654591382186">
+    <state width="983" height="325" key="GridCell.Tab.0.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788402092" />
+    <state width="983" height="325" key="GridCell.Tab.0.right" timestamp="1654788402092">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="305" key="GridCell.Tab.0.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591382186" />
-    <state width="1002" height="394" key="GridCell.Tab.1.bottom" timestamp="1654591200514">
+    <state width="983" height="325" key="GridCell.Tab.0.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788402092" />
+    <state width="1002" height="381" key="GridCell.Tab.1.bottom" timestamp="1654788238445">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="394" key="GridCell.Tab.1.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591200514" />
-    <state width="1002" height="394" key="GridCell.Tab.1.center" timestamp="1654591200514">
+    <state width="1002" height="381" key="GridCell.Tab.1.bottom/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788238445" />
+    <state width="1002" height="381" key="GridCell.Tab.1.center" timestamp="1654788238445">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="394" key="GridCell.Tab.1.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591200514" />
-    <state width="1002" height="394" key="GridCell.Tab.1.left" timestamp="1654591200514">
+    <state width="1002" height="381" key="GridCell.Tab.1.center/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788238445" />
+    <state width="1002" height="381" key="GridCell.Tab.1.left" timestamp="1654788238445">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="394" key="GridCell.Tab.1.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591200514" />
-    <state width="1002" height="394" key="GridCell.Tab.1.right" timestamp="1654591200514">
+    <state width="1002" height="381" key="GridCell.Tab.1.left/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788238445" />
+    <state width="1002" height="381" key="GridCell.Tab.1.right" timestamp="1654788238445">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1002" height="394" key="GridCell.Tab.1.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654591200514" />
-    <state x="845" y="267" key="RollbackChangesDialog" timestamp="1654579884123">
+    <state width="1002" height="381" key="GridCell.Tab.1.right/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654788238445" />
+    <state x="845" y="267" key="RollbackChangesDialog" timestamp="1654747014300">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="845" y="267" key="RollbackChangesDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654579884123" />
+    <state x="845" y="267" key="RollbackChangesDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654747014300" />
     <state x="-6" y="0" width="1547" height="830" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1654178499316">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="-6" y="0" width="1547" height="830" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654178499316" />
-    <state x="723" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1654565030285">
+    <state x="723" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1654746738419">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="723" y="380" key="com.intellij.ide.util.TipDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654565030285" />
+    <state x="723" y="380" key="com.intellij.ide.util.TipDialog/-1920.623.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1654746738419" />
     <state x="741" y="450" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1654052315859">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -267,19 +279,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/MiniSql.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Cursor.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="38" />
+          <line>161</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="table.pager.pages[0].rows[0]" />
+        <watch expression="page_num" />
       </configuration>
     </watches-manager>
   </component>

@@ -4,16 +4,16 @@ import java.nio.MappedByteBuffer;
 
 
 
-public class Row {
-    final static int COLUMN_USERNAME_SIZE = 32;
-    final static int COLUMN_EMAIL_SIZE = 255;
-    final static int ID_SIZE = 4;
-    final static int ID_OFFSET = 0;
-    final static int USERNAME_SIZE = 32;
-    final static int USERNAME_OFFSET = ID_OFFSET + ID_SIZE;
-    final static int EMAIL_SIZE = 255;
-    final static int EMAIL_OFFSET = USERNAME_OFFSET + USERNAME_SIZE;
-    final static int ROW_SIZE = ID_SIZE + USERNAME_SIZE + EMAIL_SIZE;
+public class Row implements Cloneable {
+    public final static int COLUMN_USERNAME_SIZE = 32;
+    public final static int COLUMN_EMAIL_SIZE = 255;
+    public final static int ID_SIZE = 4;
+    public final static int ID_OFFSET = 0;
+    public final static int USERNAME_SIZE = 32;
+    public final static int USERNAME_OFFSET = ID_OFFSET + ID_SIZE;
+    public final static int EMAIL_SIZE = 255;
+    public final static int EMAIL_OFFSET = USERNAME_OFFSET + USERNAME_SIZE;
+    public final static int ROW_SIZE = ID_SIZE + USERNAME_SIZE + EMAIL_SIZE;
     int id;
     String username;
     String email;
@@ -69,4 +69,13 @@ public class Row {
         return "(" + id + ", " + username + ", " + email + ")";
     }
 
+    void copyTo(Row destination){
+        destination.id = id;
+        destination.username = username;
+        destination.email = email;
+    }
+
+    void copyFrom(Row source){
+        source.copyTo(this);
+    }
 }
