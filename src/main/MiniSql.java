@@ -76,16 +76,12 @@ public class MiniSql {
     }
 
     static ExecuteResult execute_insert(Statement statement, Table table) {
-//        if (table.full()) {
-//            return ExecuteResult.EXECUTE_TABLE_FULL;
-//        }
         Page page = table.pager.get_page(table.root_page_num);
         if(page.leaf_node_num_cells >= Page.LEAF_NODE_MAX_CELLS) return ExecuteResult.EXECUTE_TABLE_FULL;
-        Cursor cursor = table_end(table);
-//        serialize_row(statement.row_to_insert, cursor.value());
-//        pager_flush(table.pager, table.num_rows / Page.ROWS_PER_PAGE, table.num_rows % Page.ROWS_PER_PAGE + 1);
-
-//        table.num_rows += 1;
+        Cursor cursor = table.find(statement.row_to_insert.id);
+        if(cursor.cell_num < page.leaf_node_num_cells && statement.row_to_insert.id == page.cells[cursor.cell_num].key){
+            return ExecuteResult.EXECUTE_DUPLICATE_KEY;
+        }
         cursor.leaf_node_insert(statement.row_to_insert.id, statement.row_to_insert);
         return ExecuteResult.EXECUTE_SUCCESS;
     }
@@ -99,20 +95,6 @@ public class MiniSql {
             cursor.advance();
         }
         return ExecuteResult.EXECUTE_SUCCESS;
-    }
-
-    /**
-     * 返回表中第i行数据的引用
-     */
-
-
-    /**
-     * 仿序列化
-     */
-    static void serialize_row(Row source, Row destination) {
-        destination.id = source.id;
-        destination.username = source.username;
-        destination.email = source.email;
     }
 
     /**
@@ -139,25 +121,10 @@ public class MiniSql {
 
     private static Table db_open(String filename) {
         Pager pager = pager_open(filename);
-//        int page_num = (int) (pager.file.length() / Page.PAGE_SIZE);
-//        int num_rows =  page_num * Page.ROWS_PER_PAGE;
-//        if(page_num > 0){
-//            /**
-//             * num_rows需要减去末页空行数量
-//             * */
-//            Page page = pager.get_page(page_num - 1);
-////            for(Row row:page.rows){
-////                if(row.isNull()) num_rows--;
-////            }
-//            for(Cell cell:page.cells){
-//                if(cell.value.isNull()) num_rows--;
-//            }
-//        }
         Table table = new Table(pager);
         return table;
     }
 
-    /***/
     static void db_close(Table table) {
         Pager pager = table.pager;
         for(int i = 0; i < Page.LEAF_NODE_MAX_CELLS;i++){
@@ -165,26 +132,6 @@ public class MiniSql {
                 pager.flush(i);
             }
         }
-//        /**
-//         * 先将行满的页冲刷
-//         * */
-//        int num_full_pages = table.num_rows / Page.ROWS_PER_PAGE;
-//        for (int i = 0; i < num_full_pages; i++) {
-//            if (pager.pages[i] == null) continue;
-//            pager.flush(i);
-//            pager.pages[i] = null;
-//        }
-//        /**
-//         * 最后一页可能行未满
-//         * */
-//        int num_additional_rows = table.num_rows % Page.ROWS_PER_PAGE;
-//        if (num_additional_rows > 0) {
-//            int page_num = num_full_pages;
-//            if (pager.pages[page_num] != null) {
-//                pager.flush(page_num, num_additional_rows * Row.ROW_SIZE);
-//                pager.pages[page_num] = null;
-//            }
-//        }
     }
 
 
@@ -195,17 +142,6 @@ public class MiniSql {
         Page root_node = table.pager.get_page(table.root_page_num);
         int num_cells = root_node.leaf_node_num_cells;
         cursor.end_of_table = (num_cells == 0);
-//        cursor.end_of_table = (table.num_rows == 0);
-        return cursor;
-    }
-
-    static Cursor table_end(Table table){
-        Cursor cursor = new Cursor(table);
-        cursor.page_num = table.root_page_num;
-        Page root_node = table.pager.get_page(table.root_page_num);
-        cursor.cell_num = root_node.leaf_node_num_cells;
-//        cursor.row_num = table.num_rows;
-        cursor.end_of_table = true;
         return cursor;
     }
 
@@ -218,9 +154,9 @@ public class MiniSql {
         Table table = db_open(filename);
         Scanner scanner = new Scanner(System.in);
         int test_num = 13;
-        while (test_num >= 0) {
+        while (true) {
             print_prompt();
-            String input_buffer = null;
+            String input_buffer;
             if(test_num > 0){
                 input_buffer = "insert " + test_num + " username example@qq.com";
                 test_num--;
@@ -278,11 +214,13 @@ public class MiniSql {
                     System.out.println("Error: Table full.");
                     break;
                 }
+                case EXECUTE_DUPLICATE_KEY:{
+                    System.out.println("Error: Duplicate key.");
+                    break;
+                }
                 default:
                     break;
             }
         }
     }
-
-
 }

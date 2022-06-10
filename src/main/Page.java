@@ -1,10 +1,13 @@
 package main;
 
+import org.w3c.dom.Node;
+import type.NodeType;
+
 import java.nio.MappedByteBuffer;
 
 public class Page {
     public final static int PAGE_SIZE = 4096;
-//    public final static int ROWS_PER_PAGE = PAGE_SIZE / Row.ROW_SIZE;
+
     /**
      * 普通节点头部
      * */
@@ -36,17 +39,17 @@ public class Page {
     public final static int LEAF_NODE_SPACE_FOR_CELLS = Page.PAGE_SIZE - LEAF_NODE_HEADER_SIZE;
     public final static int LEAF_NODE_MAX_CELLS =
             LEAF_NODE_SPACE_FOR_CELLS / LEAF_NODE_CELL_SIZE;
-//    Row[] rows = new Row[ROWS_PER_PAGE];
     Cell[] cells = new Cell[LEAF_NODE_MAX_CELLS];
     int leaf_node_num_cells;
+    public NodeType nodeType;
 
     public Page(MappedByteBuffer buffer) {
+        nodeType = NodeType.NODE_LEAF;
         buffer2Page(buffer);
     }
 
     void buffer2Page(MappedByteBuffer buffer) {
         for (int i = 0; i < LEAF_NODE_MAX_CELLS; i++) {
-//            rows[i] = new Row(buffer, i * Row.ROW_SIZE, Row.ROW_SIZE);
             Row row = new Row(buffer, i * Row.ROW_SIZE, Row.ROW_SIZE);
             if(!row.isNull()){
                 cells[i] = new Cell(row.id, row);
@@ -57,7 +60,6 @@ public class Page {
 
     void page2Buffer(MappedByteBuffer buffer) {
         for (int i = 0; i < leaf_node_num_cells; i++) {
-//            rows[i].row2Buffer(buffer);
             cells[i].value.row2Buffer(buffer);
         }
     }
